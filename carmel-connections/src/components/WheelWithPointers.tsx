@@ -25,6 +25,7 @@ export default function WheelWithPointers({
   const pointer1Ref = useRef<SVGSVGElement>(null);
   const pointer2Ref = useRef<SVGSVGElement>(null);
   const [spinning, setSpinning] = useState(false);
+  
 
   // Responsive canvas
   useEffect(() => {
@@ -49,6 +50,8 @@ export default function WheelWithPointers({
 
     const size = canvasSize;
     const dpr = window.devicePixelRatio || 1;
+    canvas.style.width = `${size}px`;
+    canvas.style.height = `${size}px`;
     canvas.width = size * dpr;
     canvas.height = size * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -126,8 +129,9 @@ export default function WheelWithPointers({
     const interviewerIndex = employees.findIndex((e) => e.id === interviewer.id);
     const intervieweeIndex = employees.findIndex((e) => e.id === interviewee.id);
 
-    const targetAngle1 = -interviewerIndex * slice + Math.PI / 2;
-    const targetAngle2 = -intervieweeIndex * slice + Math.PI / 2;
+    const targetAngle1 = (-interviewerIndex * slice) + (Math.PI / 2) - (slice/2);
+    const targetAngle2 = -intervieweeIndex * slice + Math.PI / 2 - (slice/2);
+    console.log(`Slice ${slice}, InterviewerIndex ${interviewerIndex}, targetAngle1 ${targetAngle1}`)
 
     await Promise.all([
       animatePointer(pointer1Ref.current!, targetAngle1, 2000),
@@ -184,19 +188,22 @@ export default function WheelWithPointers({
             ref={pointer1Ref}
             width={canvasSize}
             height={canvasSize}
-            style={{ position: "absolute", top: 10, left: 10, pointerEvents: "none" }}
+            style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }}
             >
                 <polygon
                     points={`
-                    ${canvasSize/2},${canvasSize/2 - arrowLength} 
-                    ${canvasSize/2 - arrowWidth/2},${canvasSize/2} 
+                    ${canvasSize/2}, ${canvasSize/2 + arrowLength} 
+                    ${canvasSize/2 - arrowWidth/2}, ${canvasSize/2} 
                     ${canvasSize/2 + arrowWidth/2},${canvasSize/2}
                     `}
-                    fill="#ff3b3f"
+                    fill="#ff7f50"
                 />
         </svg>  
+        {/* <svg ref={pointer1Ref} width={canvasSize} height={canvasSize} style={{ position: "absolute", top: 0, left: 0 }}>
+          <polygon points={`${canvasSize/2},${canvasSize/2} ${canvasSize/2},${canvasSize/2} ${canvasSize/2},0`} fill="#3b9fff" />
+        </svg> */}
         <svg ref={pointer2Ref} width={canvasSize} height={canvasSize} style={{ position: "absolute", top: 0, left: 0 }}>
-          <polygon points={`${canvasSize/2-10},${canvasSize/2} ${canvasSize/2+10},${canvasSize/2} ${canvasSize/2},0`} fill="#3b9fff" />
+          <polygon points={`${canvasSize/2-10},${canvasSize/2} ${canvasSize/2+10},${canvasSize/2} ${canvasSize/2},50`} fill="#3b9fff" />
         </svg>
       </div>
 
