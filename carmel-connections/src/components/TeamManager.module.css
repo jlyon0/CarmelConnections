@@ -1,0 +1,12 @@
+.container{display:flex; flex-direction:column; gap:12px}
+.row{display:flex; gap:8px}
+.teamGrid{display:grid; gap:12px}
+.teamCard{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:12px;
+}
+.teamHeader{display:flex; align-items:center; justify-content:space-between; gap:8px}
+.empList{margin:8px 0 0 0; padding-left:18px; color:#dbeafe}
+.addRow{display:flex; gap:8px; margin-top:8px}
