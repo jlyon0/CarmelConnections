@@ -1,0 +1,52 @@
+.container{
+  display:flex; 
+  gap:24px; 
+  flex-wrap:wrap; 
+  justify-content:center; 
+  align-items:flex-start;
+}
+.spinnerCard{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:12px;
+  width:220px;
+}
+.titleRow{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;}
+.listWrapper{
+  overflow:hidden; 
+  height:200px; 
+  border-radius:12px; 
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(0,0,0,.1);
+  position:relative;
+}
+.list{
+  display:flex;
+  flex-direction:column;
+}
+.item{
+  padding:12px; 
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.04);
+  font-weight:600;
+  color:white;
+  user-select:none;
+}
+.pointer{
+  position:absolute;
+  top:50%;
+  left:0;
+  right:0;
+  height:40px;
+  margin-top:-20px;
+  border-top:3px solid var(--ring);
+  border-bottom:3px solid var(--ring);
+  pointer-events:none;
+}
+.badge{
+  padding:6px 10px; border-radius:999px; font-weight:700;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); margin-top:8px; display:block; text-align:center;
+}
+.btn{margin-top:12px;}

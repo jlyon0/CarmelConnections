@@ -204,7 +204,7 @@ export default function WheelWithPointers({
     setSpinning(false);
   };
 
-  const arrowWidth = 40;
+  const arrowWidth = 20;
   const arrowLength = 100;
 
   return (
@@ -220,6 +220,7 @@ export default function WheelWithPointers({
     >
       <div style={{ position: "relative", width: canvasSize, height: canvasSize }}>
         <canvas ref={canvasRef} width={canvasSize} height={canvasSize} />
+
         {/* Orange pointer (default points DOWN) */}
         <svg
           ref={pointer1Ref}
@@ -236,15 +237,22 @@ export default function WheelWithPointers({
         >
           <polygon
             points={`
-              ${canvasSize / 2}, ${canvasSize / 2 + arrowLength}
-              ${canvasSize / 2 - arrowWidth / 2}, ${canvasSize / 2}
-              ${canvasSize / 2 + arrowWidth / 2}, ${canvasSize / 2}
+              ${canvasSize/2 - arrowWidth/4}, ${canvasSize/2}
+              ${canvasSize/2 + arrowWidth/4}, ${canvasSize/2}
+              ${canvasSize/2 + arrowWidth/4}, ${canvasSize/2 + arrowLength*0.6}
+              ${canvasSize/2 + arrowWidth/2}, ${canvasSize/2 + arrowLength*0.6}
+              ${canvasSize/2}, ${canvasSize/2 + arrowLength}
+              ${canvasSize/2 - arrowWidth/2}, ${canvasSize/2 + arrowLength*0.6}
+              ${canvasSize/2 - arrowWidth/4}, ${canvasSize/2 + arrowLength*0.6}
             `}
             fill="#ff7f50"
+            stroke="rgba(0,0,0,0.25)"
+            strokeWidth="2"
+            strokeLinejoin="round"
           />
         </svg>
 
-        {/* Blue pointer (default points UP) */}
+        {/* Blue arrow (default points UP) */}
         <svg
           ref={pointer2Ref}
           width={canvasSize}
@@ -253,16 +261,40 @@ export default function WheelWithPointers({
             position: "absolute",
             top: 0,
             left: 0,
+            pointerEvents: "none",
             transformBox: "fill-box",
             transformOrigin: "50% 50%",
           }}
         >
           <polygon
-            points={`${canvasSize / 2 - 10},${canvasSize / 2} ${canvasSize / 2 + 10},${canvasSize / 2} ${
-              canvasSize / 2
-            },50`}
+            points={`
+              ${canvasSize/2 - arrowWidth/4}, ${canvasSize/2}
+              ${canvasSize/2 + arrowWidth/4}, ${canvasSize/2}
+              ${canvasSize/2 + arrowWidth/4}, ${canvasSize/2 - arrowLength*0.6}
+              ${canvasSize/2 + arrowWidth/2}, ${canvasSize/2 - arrowLength*0.6}
+              ${canvasSize/2}, ${canvasSize/2 - arrowLength}
+              ${canvasSize/2 - arrowWidth/2}, ${canvasSize/2 - arrowLength*0.6}
+              ${canvasSize/2 - arrowWidth/4}, ${canvasSize/2 - arrowLength*0.6}
+            `}
             fill="#3b9fff"
+            stroke="rgba(0,0,0,0.25)"
+            strokeWidth="2"
+            strokeLinejoin="round"
           />
+        </svg>
+        <svg
+          width={canvasSize}
+          height={canvasSize}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            pointerEvents: "none",
+            transformBox: "fill-box",
+            transformOrigin: "50% 50%",
+          }}
+        >
+          <circle cx={canvasSize/2} cy={canvasSize/2} r="10" fill="white" stroke="black" stroke-width="2" />
         </svg>
       </div>
 

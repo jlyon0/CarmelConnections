@@ -45,6 +45,19 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees }
   const handleEmployeeKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, teamId: string) => {
     if (e.key === "Enter") addEmployeeToTeam(teamId);
   };
+  const handleClearSelections = () => {
+    setEmployees((e) => 
+      e.map((emp) => {
+        return {
+          id: emp.id,
+          name: emp.name,
+          teamId: emp.teamId,
+          interviewerUsed: false,
+          intervieweeUsed: false,
+       }
+      }),
+    );
+  }
 
   return (
     <div className="card">
@@ -81,11 +94,23 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees }
                 </div>
 
                 {teamMembers.length > 0 && (
-                  <ul className={styles.empList}>
+                  <table>
+                    <tbody>
                     {teamMembers.map((m) => (
-                      <li key={m.id}>{m.name}</li>
+                          <tr key={m.id}>
+                            <td>
+                              {m.name}
+                            </td>
+                            <td>
+                              {m.intervieweeUsed? "🔴" : "\t"}
+                            </td>
+                            <td>
+                              {m.interviewerUsed? "🔵": "\t"}
+                            </td>
+                          </tr>
                     ))}
-                  </ul>
+                    </tbody>
+                  </table>
                 )}
 
                 {/* Add employee */}
@@ -109,6 +134,11 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees }
           {teams.length === 0 && (
             <p className="label">Create a team to start adding employees.</p>
           )}
+          <div>
+            <button className="btn secondary" onClick={() => handleClearSelections()}>
+                    Clear Selections
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@ import TeamManager from "@/components/TeamManager";
 import Wheel from "@/components/Wheel";
 import DualSpinner from "@/components/DualSpinner";
 import WheelWithPointers from "@/components/WheelWithPointers";
+import TeamViewer from "@/components/TeamViewer";
+import DropdownParent from "@/components/DropDown";
 
 export default function Page() {
   const [teams, setTeams] = useState<Team[]>([
@@ -60,12 +62,21 @@ export default function Page() {
         <h1 className="title">Carmel Connections</h1>
       </div>
       <div className="grid">
-        <TeamManager
-          teams={teams}
+        <DropdownParent title="Team Manager" childComponentProps={null}>
+          <TeamManager
+            teams={teams}
+            setTeams={setTeams}
+            employees={employees}
+            setEmployees={setEmployees}
+          />
+        </DropdownParent>
+        
+        <TeamViewer
+        teams={teams}
           setTeams={setTeams}
           employees={employees}
           setEmployees={setEmployees}
-        />
+          />
         <WheelWithPointers
           teams={teams}
           employees={employees}
