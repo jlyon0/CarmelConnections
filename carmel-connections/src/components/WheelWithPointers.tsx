@@ -75,7 +75,7 @@ export default function WheelWithPointers({
       ctx.moveTo(0, 0);
       ctx.arc(0, 0, radius, start, end);
       ctx.closePath();
-      ctx.fillStyle = i % 2 === 0 ? "#6c5ce7" : "#00b894";
+      ctx.fillStyle = i % 2 === 0 ? "#0099ff" : "#69cc00";
       ctx.fill();
 
       // border line (optional)

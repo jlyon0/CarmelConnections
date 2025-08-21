@@ -7,6 +7,80 @@
   border-radius:12px;
   padding:12px;
 }
-.teamHeader{display:flex; align-items:center; justify-content:space-between; gap:8px}
+.teamHeader{display:flex; align-items:center; justify-content:space-between; gap:8px; color: #69cc00}
 .empList{margin:8px 0 0 0; padding-left:18px; color:#dbeafe}
 .addRow{display:flex; gap:8px; margin-top:8px}
+
+
+/* Table container */
+.tableContainer {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Table headers */
+.tableContainer th {
+  background-color: #f4f7f9;
+  color: #555;
+  font-weight: 600;
+  text-align: center;
+  padding: 12px 15px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Table cells */
+.tableContainer td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+/* Alternating row colors for better readability */
+.tableContainer tbody tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+.tableContainer tbody tr:nth-child(odd) {
+  background-color: #dbeafe;
+}
+
+/* Hover effect on rows */
+.tableContainer tbody tr:hover {
+  background-color: #69cc00;
+}
+
+/* Styles for the Name column input and text */
+.nameCell input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding doesn't affect the total width */
+}
+.nameCell text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styles for the button cells */
+.buttonCell button {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.buttonCell button:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}

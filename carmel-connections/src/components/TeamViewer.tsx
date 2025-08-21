@@ -35,10 +35,10 @@ export default function TeamViewer({ teams, setTeams, employees, setEmployees }:
                               {m.name}
                             </td>
                             <td>
-                              {m.intervieweeUsed? "🔴" : "\t"}
+                              {m.interviewerUsed? "🔴" : "\t"}
                             </td>
                             <td>
-                              {m.interviewerUsed? "🔵": "\t"}
+                              {m.intervieweeUsed? "🔵": "\t"}
                             </td>
                           </tr>
                     ))}

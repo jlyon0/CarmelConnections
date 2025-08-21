@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./TeamManager.module.css";
 import type { Team, Employee } from "@/types";
@@ -14,6 +14,7 @@ type Props = {
 export default function TeamManager({ teams, setTeams, employees, setEmployees }: Props) {
   const [teamName, setTeamName] = useState("");
   const [employeeInputs, setEmployeeInputs] = useState<Record<string, string>>({});
+  const [selectedEmployee, setSelectedEmployee] = useState<string|null>()
 
   const addTeam = () => {
     const name = teamName.trim();
@@ -58,6 +59,67 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees }
       }),
     );
   }
+  const handleToggleInterviewerUsed = (id:string) => {
+    const index = employees.find((emp)=> emp.id)
+    setEmployees((e) =>
+      e.map((emp) => {
+        if (emp.id === id){
+          return {
+            ...emp,
+            interviewerUsed: !emp.interviewerUsed,
+          };
+        }
+        return emp;
+      }),
+    );
+  }
+  const handleToggleIntervieweeUsed = (id:string) => {
+    setEmployees((e) =>
+      e.map((emp) => {
+        if (emp.id === id){
+          return {
+            ...emp,
+            intervieweeUsed: !emp.intervieweeUsed,
+          };
+        }
+        return emp;
+      }),
+    );
+  }
+  const setEmployeeName = (id:string, newName:string) => {
+    setEmployees((e) =>
+      e.map((emp) => {
+        if (emp.id === id){
+          return {
+            ...emp,
+            name: newName,
+          };
+        }
+        return emp;
+      }),
+    );
+   
+  }
+  const editNameRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    // Function to handle click events on the document
+    const handleOutsideClick = (event: MouseEvent) => {
+      // Check if the buttonRef exists and if the clicked element is NOT inside the button
+      if (editNameRef.current && !editNameRef.current.contains(event.target as Node)) {
+        setSelectedEmployee(null); // Hide the message
+      }
+    };
+
+    // Add the event listener to the document
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    // This is the cleanup function. It runs when the component unmounts.
+    // It's essential to remove the event listener to prevent memory leaks.
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);// The effect re-runs if the ref changes (it won't in this case)
 
   return (
     <div className="card">
@@ -94,19 +156,28 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees }
                 </div>
 
                 {teamMembers.length > 0 && (
-                  <table>
+                  <table className={styles.tableContainer}>
+                    <thead>
+                      <th >Name</th>
+                      <th>InterviewerUsed</th>
+                      <th>IntervieweeUsed</th>
+                      <th>Delete</th>
+                    </thead>
                     <tbody>
                     {teamMembers.map((m) => (
                           <tr key={m.id}>
-                            <td>
-                              {m.name}
+                            <td className={styles.nameCell}>
+                              {selectedEmployee == m.id? <input ref={editNameRef} value={m.name} onChange={(e)=> setEmployeeName(m.id, e.target.value)} ></input>:<text onClick={()=> setSelectedEmployee(m.id)}>{m.name}</text>}
                             </td>
-                            <td>
-                              {m.intervieweeUsed? "🔴" : "\t"}
+                            <td className={styles.buttonCell}>
+                              <button onClick={()=> handleToggleInterviewerUsed(m.id)} style={{display: 'flex', justifySelf: 'center'}}>{m.interviewerUsed? "🗹" : "☐"}</button>
                             </td>
-                            <td>
-                              {m.interviewerUsed? "🔵": "\t"}
+                            <td className={styles.buttonCell}>
+                              <button onClick={()=> handleToggleIntervieweeUsed(m.id)} style={{display: 'flex', justifySelf: 'center'}}>{m.intervieweeUsed? "🗹": "☐"}</button>
                             </td>
+                            <td className={styles.buttonCell}>
+                              <button style={{display: 'flex', justifySelf: 'center'}}>❌</button>
+                              </td>
                           </tr>
                     ))}
                     </tbody>
