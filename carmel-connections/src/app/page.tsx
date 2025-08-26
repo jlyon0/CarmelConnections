@@ -59,7 +59,7 @@ export default function Page() {
         "name": "Bruce Bredickas",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "fc0a21ee-2089-4f0b-9dd8-bc149cb22ddf",

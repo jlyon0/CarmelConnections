@@ -256,16 +256,7 @@ export default function SpinningWheel({
       <button
         onClick={spinWheel}
         disabled={spinning}
-        style={{
-          marginTop: 20,
-          padding: "10px 16px",
-          borderRadius: 8,
-          fontWeight: 600,
-          cursor: "pointer",
-          background: "#6c5ce7",
-          color: "white",
-          border: "none",
-        }}
+        className="btn"
       >
         {spinning ? "Spinning..." : "Spin"}
       </button>

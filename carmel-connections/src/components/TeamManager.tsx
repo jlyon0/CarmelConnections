@@ -208,7 +208,7 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
                     }
                     onKeyDown={(e) => handleEmployeeKeyDown(e, team.id)}
                   />
-                  <button className="btn secondary" onClick={() => addEmployeeToTeam(team.id)}>
+                  <button className="btn" onClick={() => addEmployeeToTeam(team.id)}>
                     Add Employee
                   </button>
                 </div>
