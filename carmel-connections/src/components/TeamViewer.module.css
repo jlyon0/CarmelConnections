@@ -1,0 +1,137 @@
+/* Container for all teams */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+}
+
+/* Grid layout for all team cards */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+/* Individual team card */
+.teamCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Team header with name and member count */
+.teamHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #69cc00;
+  font-weight: 600;
+}
+
+/* Employee list container */
+.empList {
+  margin: 8px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Each employee name box */
+.empList div {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #dbeafe;
+  color: #333;
+  flex: 0 0 auto;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Optional row container (for buttons or other controls) */
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+/* Add row section */
+.addRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Table styles (if you still want a table for some use) */
+.tableContainer {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tableContainer th {
+  background-color: #f4f7f9;
+  color: #555;
+  font-weight: 600;
+  text-align: center;
+  padding: 12px 15px;
+  border-bottom: 2px solid #ddd;
+}
+
+.tableContainer td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.tableContainer tbody tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.tableContainer tbody tr:nth-child(odd) {
+  background-color: #dbeafe;
+}
+
+.tableContainer tbody tr:hover {
+  background-color: #69cc00;
+}
+
+/* Name cell styles for input or text */
+.nameCell input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.nameCell text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button cell styling */
+.buttonCell button {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.buttonCell button:hover {
+  background-color: #e0e0e0;
+}

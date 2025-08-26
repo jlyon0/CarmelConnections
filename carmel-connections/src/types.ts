@@ -4,6 +4,6 @@ export type Employee = {
   id: string;
   name: string;
   teamId: string;
-  interviewerUsed: boolean;
+  interviewer: boolean;
   intervieweeUsed: boolean;
 };

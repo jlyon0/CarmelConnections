@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import styles from "./TeamManager.module.css";
+import styles from "./TeamViewer.module.css";
 import type { Team, Employee } from "@/types";
 
 type Props = {
@@ -15,7 +15,7 @@ export default function TeamViewer({ teams, setTeams, employees, setEmployees }:
 
 
   return (
-    <div> {/* List teams */}
+    <div style={{  }}> {/* List teams */}
         <div className={styles.teamGrid}>
           {teams.map((team) => {
             const teamMembers = employees.filter((e) => e.teamId === team.id);
@@ -25,25 +25,15 @@ export default function TeamViewer({ teams, setTeams, employees, setEmployees }:
                   <h3>{team.name}</h3>
                   <span className="label">{teamMembers.length} member(s)</span>
                 </div>
-
+                
                 {teamMembers.length > 0 && (
-                  <table>
-                    <tbody>
+                  <div className={styles.empList}>
                     {teamMembers.map((m) => (
-                          <tr key={m.id}>
-                            <td>
-                              {m.name}
-                            </td>
-                            <td>
-                              {m.interviewerUsed? "🔴" : "\t"}
-                            </td>
-                            <td>
-                              {m.intervieweeUsed? "🔵": "\t"}
-                            </td>
-                          </tr>
+                      <div key={m.id}>
+                        {m.name}
+                      </div>
                     ))}
-                    </tbody>
-                  </table>
+                  </div>
                 )}
             </div>
             );

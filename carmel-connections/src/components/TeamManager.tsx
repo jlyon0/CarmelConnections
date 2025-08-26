@@ -9,9 +9,12 @@ type Props = {
   setTeams: React.Dispatch<React.SetStateAction<Team[]>>;
   employees: Employee[];
   setEmployees: React.Dispatch<React.SetStateAction<Employee[]>>;
+  setSelection: React.Dispatch<
+    React.SetStateAction<{ interviewer: Employee | null; interviewee: Employee | null }>
+  >;
 };
 
-export default function TeamManager({ teams, setTeams, employees, setEmployees }: Props) {
+export default function TeamManager({ teams, setTeams, employees, setEmployees, setSelection }: Props) {
   const [teamName, setTeamName] = useState("");
   const [employeeInputs, setEmployeeInputs] = useState<Record<string, string>>({});
   const [selectedEmployee, setSelectedEmployee] = useState<string|null>()
@@ -36,7 +39,7 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees }
         id: uuidv4(),
         name,
         teamId,
-        interviewerUsed: false,
+        interviewer: false,
         intervieweeUsed: false,
       },
     ]);
@@ -53,26 +56,36 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees }
           id: emp.id,
           name: emp.name,
           teamId: emp.teamId,
-          interviewerUsed: false,
+          interviewer: false,
           intervieweeUsed: false,
        }
       }),
     );
   }
-  const handleToggleInterviewerUsed = (id:string) => {
-    const index = employees.find((emp)=> emp.id)
-    setEmployees((e) =>
-      e.map((emp) => {
-        if (emp.id === id){
-          return {
-            ...emp,
-            interviewerUsed: !emp.interviewerUsed,
-          };
+  const handleToggleInterviewerUsed = (id: string) => {
+    let selectedInterviewer: Employee | null = null;
+    console.log("Selected interviewer:", selectedInterviewer);
+    setEmployees((prev) =>
+      prev.map((emp) => {
+        if (emp.id === id) {
+          // toggle selected employee
+          const updated = { ...emp, interviewer: true };
+          selectedInterviewer = updated;
+          return updated;
         }
-        return emp;
-      }),
+        // unset interviewer for everyone else
+        return { ...emp, interviewer: false };
+      })
     );
-  }
+
+    // update selection after state changes
+    const selected = employees.find((emp) => emp.id === id) ?? null;
+    if (selected) {
+      setSelection((prev) => ({ ...prev, interviewer: selected }));
+    }
+    console.log("Selected interviewer:", selectedInterviewer);
+  };
+
   const handleToggleIntervieweeUsed = (id:string) => {
     setEmployees((e) =>
       e.map((emp) => {
@@ -159,7 +172,7 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees }
                   <table className={styles.tableContainer}>
                     <thead>
                       <th >Name</th>
-                      <th>InterviewerUsed</th>
+                      <th>Interviewer</th>
                       <th>IntervieweeUsed</th>
                       <th>Delete</th>
                     </thead>
@@ -170,7 +183,7 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees }
                               {selectedEmployee == m.id? <input ref={editNameRef} value={m.name} onChange={(e)=> setEmployeeName(m.id, e.target.value)} ></input>:<text onClick={()=> setSelectedEmployee(m.id)}>{m.name}</text>}
                             </td>
                             <td className={styles.buttonCell}>
-                              <button onClick={()=> handleToggleInterviewerUsed(m.id)} style={{display: 'flex', justifySelf: 'center'}}>{m.interviewerUsed? "🗹" : "☐"}</button>
+                              <button onClick={()=> handleToggleInterviewerUsed(m.id)} style={{display: 'flex', justifySelf: 'center'}}>{m.interviewer? "🗹" : "☐"}</button>
                             </td>
                             <td className={styles.buttonCell}>
                               <button onClick={()=> handleToggleIntervieweeUsed(m.id)} style={{display: 'flex', justifySelf: 'center'}}>{m.intervieweeUsed? "🗹": "☐"}</button>
