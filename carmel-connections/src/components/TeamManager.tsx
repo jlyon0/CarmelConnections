@@ -99,6 +99,11 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
       }),
     );
   }
+  const handleDeleteEmployee = (id:string) => {
+    setEmployees((currentEmployees) =>
+      currentEmployees.filter((emp) => emp.id !== id),
+    );
+  }
   const setEmployeeName = (id:string, newName:string) => {
     setEmployees((e) =>
       e.map((emp) => {
@@ -189,7 +194,7 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
                               <button onClick={()=> handleToggleIntervieweeUsed(m.id)} style={{display: 'flex', justifySelf: 'center'}}>{m.intervieweeUsed? "🗹": "☐"}</button>
                             </td>
                             <td className={styles.buttonCell}>
-                              <button style={{display: 'flex', justifySelf: 'center'}}>❌</button>
+                              <button onClick={() => handleDeleteEmployee(m.id)} style={{display: 'flex', justifySelf: 'center'}}>❌</button>
                               </td>
                           </tr>
                     ))}
