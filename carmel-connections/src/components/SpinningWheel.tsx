@@ -179,10 +179,10 @@ export default function SpinningWheel({
     // Save selection
     setSelection((prev) => ({ ...prev, interviewee }));
 
-  // Now spin to the right slice
-  const n = employees.length;
-  const index = employees.findIndex((e) => e.id === interviewee.id);
-  const slice = (2 * Math.PI) / n;
+    // Now spin to the right slice
+    const n = employees.length;
+    const index = employees.findIndex((e) => e.id === interviewee.id);
+    const slice = (2 * Math.PI) / n;
 
     // Target rotation: align chosen slice center to arrow (right side, 3 o'clock)
     const chosenAngle = index * slice + slice / 2;
@@ -190,13 +190,13 @@ export default function SpinningWheel({
     // Current rotation normalized
     const currentRot = rotation % (2 * Math.PI);
 
-    const spins = 6; // extra spins for flair
+    const spins = 10; // extra spins for flair
     // Compute minimal rotation delta to land on chosen slice
-    let deltaRot = -currentRot - chosenAngle + spins * 2 * Math.PI; // 6 extra spins
+    let deltaRot = -currentRot - chosenAngle + spins * 2 * Math.PI; // 10 extra spins
     // ensure deltaRot positive
     if (deltaRot < 0) deltaRot += 2 * Math.PI;
 
-    const duration = 10000;
+    const duration = 30000;
     const start = rotation;
     const end = start + deltaRot;
     const startTime = performance.now();

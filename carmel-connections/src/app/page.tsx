@@ -30,7 +30,7 @@ export default function Page() {
         "id": "0111d695-1bad-4350-adbb-bd99368b65f3",
         "name": "Christa Winans",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
-        "interviewer": true,
+        "interviewer": false,
         "intervieweeUsed": true
     },
     {
@@ -177,8 +177,8 @@ export default function Page() {
         "id": "2a82c0a9-0447-4f01-82f4-688ff48befc1",
         "name": "Ryan Christie",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
-        "interviewer": false,
-        "intervieweeUsed": false
+        "interviewer": true,
+        "intervieweeUsed": true
     },
     {
         "id": "9fcd6695-e442-4d88-be66-1a79d7e0cc5a",
