@@ -25,6 +25,8 @@ export default function Page() {
         "name": "Client Relations"
     }
 ]);
+    // High ups who don't participate: Christa, Bruce, Michelle, Mike, Brad, Eric, Matt
+    // Interviee's that have actually been selected: Ryan, Mellanie,
   const [employees, setEmployees] = useState<Employee[]>([
     {
         "id": "0111d695-1bad-4350-adbb-bd99368b65f3",
@@ -38,21 +40,21 @@ export default function Page() {
         "name": "Kayla Becnel",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "700c5fd6-292c-42fe-80c7-82e3dfb77f88",
         "name": "Mickala Winans",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "e3d8153a-7ffc-4ea2-857b-c4f8c116b188",
         "name": "Phil Graves",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "8dcf52b7-3ce7-47df-9767-60a12108feac",
@@ -66,21 +68,21 @@ export default function Page() {
         "name": "Ian Macias",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "9b5e1867-9e2f-4f01-97ae-4dfdd771d346",
         "name": "Katie Wilson",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "7222d766-21cf-428e-9e07-3c2da3c28df4",
         "name": "Mellanie Roder",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-        "interviewer": false,
-        "intervieweeUsed": false
+        "interviewer": true,
+        "intervieweeUsed": true
     },
     {
         "id": "a20783d0-3ab1-4012-b130-cf323204157c",
@@ -101,21 +103,21 @@ export default function Page() {
         "name": "Rob Syck",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "91c54a34-a3d7-4d42-ba73-6e3d31199f3c",
         "name": "Taylor Killoren",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "abb64db1-dcff-4c5f-8e15-dc80387081c0",
         "name": "Wade Pulliam",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "d20621e3-e959-486c-be1c-04af420dbc3e",
@@ -143,7 +145,7 @@ export default function Page() {
         "name": "Joe Lyon",
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "e36c8443-f331-4032-acc9-d1837ce71e19",
@@ -177,7 +179,7 @@ export default function Page() {
         "id": "2a82c0a9-0447-4f01-82f4-688ff48befc1",
         "name": "Ryan Christie",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
-        "interviewer": true,
+        "interviewer": false,
         "intervieweeUsed": true
     },
     {
@@ -185,14 +187,14 @@ export default function Page() {
         "name": "Sara Williamson",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     },
     {
         "id": "31102833-10f8-4322-946f-36eba5786333",
         "name": "Scott Via",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
         "interviewer": false,
-        "intervieweeUsed": false
+        "intervieweeUsed": true
     }
 ]);
   const [selection, setSelection] = useState<{ interviewer: Employee | null; interviewee: Employee | null }>({
