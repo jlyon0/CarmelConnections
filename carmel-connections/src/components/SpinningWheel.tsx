@@ -190,13 +190,13 @@ export default function SpinningWheel({
     // Current rotation normalized
     const currentRot = rotation % (2 * Math.PI);
 
-    const spins = 4; // extra spins for flair
+    const spins = 3; // extra spins for flair
     // Compute minimal rotation delta to land on chosen slice
     let deltaRot = -currentRot - chosenAngle + spins * 2 * Math.PI; // 10 extra spins
     // ensure deltaRot positive
     if (deltaRot < 0) deltaRot += 2 * Math.PI;
 
-    const duration = 30000;
+    const duration = 20000;
     const start = rotation;
     const end = start + deltaRot;
     const startTime = performance.now();
