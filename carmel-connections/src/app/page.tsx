@@ -26,7 +26,7 @@ export default function Page() {
     }
 ]);
     // High ups who don't participate: Christa, Bruce, Michelle, Mike, Brad, Eric, Matt
-    // Interviee's that have actually been selected: Ryan C, Mellanie R, Justin B,
+    // Interviee's that have actually been selected: Ryan C, Mellanie R, Justin B, Taylor K,
   const [employees, setEmployees] = useState<Employee[]>([
     {
         "id": "0111d695-1bad-4350-adbb-bd99368b65f3",
@@ -109,8 +109,8 @@ export default function Page() {
         "id": "91c54a34-a3d7-4d42-ba73-6e3d31199f3c",
         "name": "Taylor Killoren",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-        "interviewer": false,
-        "intervieweeUsed": false
+        "interviewer": true,
+        "intervieweeUsed": true
     },
     {
         "id": "abb64db1-dcff-4c5f-8e15-dc80387081c0",
@@ -151,7 +151,7 @@ export default function Page() {
         "id": "e36c8443-f331-4032-acc9-d1837ce71e19",
         "name": "Justin Brown",
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
-        "interviewer": true,
+        "interviewer": false,
         "intervieweeUsed": true
     },
     {
