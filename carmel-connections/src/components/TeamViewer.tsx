@@ -15,17 +15,20 @@ export default function TeamViewer({ teams, setTeams, employees, setEmployees }:
 
 
   return (
-    <div style={{  }}> {/* List teams */}
+    <div className={styles.container}> {/* List teams */}
         <div className={styles.teamGrid}>
           {teams.map((team) => {
             const teamMembers = employees.filter((e) => e.teamId === team.id);
             return (
               <div key={team.id} className={styles.teamCard}>
+
                 <div className={styles.teamHeader}>
                   <h3>{team.name}</h3>
-                  <span className="label">{teamMembers.length} member(s)</span>
+                                  <span className="label">{teamMembers.length} member(s)</span>
+
                 </div>
                 
+
                 {teamMembers.length > 0 && (
                   <div className={styles.empList}>
                     {teamMembers.map((m) => (

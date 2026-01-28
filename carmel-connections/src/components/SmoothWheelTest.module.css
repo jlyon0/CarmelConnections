@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: min(360px, 90vw);
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.description,
+.status {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  text-align: center;
+  margin: 0;
+}
+
+.frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pointer {
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 24px solid var(--color-text);
+  transform: translateY(-50%);
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
+}
+
+.wheel {
+  width: min(320px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(
+    #65f1ff 0deg 72deg,
+    #69cc00 72deg 144deg,
+    #0099ff 144deg 216deg,
+    #f97316 216deg 288deg,
+    #22d3ee 288deg 360deg
+  );
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(6, 11, 34, 0.5);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.wheel::after {
+  content: "";
+  position: absolute;
+  inset: 30%;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.spinning {
+  animation: softSpin 3.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+@keyframes softSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1440deg);
+  }
+}

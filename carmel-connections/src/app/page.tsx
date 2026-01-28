@@ -5,6 +5,7 @@ import TeamManager from "@/components/TeamManager";
 import TeamViewer from "@/components/TeamViewer";
 import DropdownParent from "@/components/DropDown";
 import SpinningWheel from "@/components/SpinningWheel";
+import SmoothWheelTest from "@/components/SmoothWheelTest";
 
 export default function Page() {
   const [teams, setTeams] = useState<Team[]>([
@@ -109,7 +110,7 @@ export default function Page() {
         "id": "91c54a34-a3d7-4d42-ba73-6e3d31199f3c",
         "name": "Taylor Killoren",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-        "interviewer": true,
+        "interviewer": false,
         "intervieweeUsed": true
     },
     {
@@ -186,13 +187,34 @@ export default function Page() {
         "id": "9fcd6695-e442-4d88-be66-1a79d7e0cc5a",
         "name": "Sara Williamson",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
-        "interviewer": false,
-        "intervieweeUsed": false
+        "interviewer": true,
+        "intervieweeUsed": true
     },
     {
         "id": "31102833-10f8-4322-946f-36eba5786333",
         "name": "Scott Via",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
+        "interviewer": false,
+        "intervieweeUsed": false
+    },
+    {
+        "id": "50ef4a59-8d5a-4ddd-8443-da2cf01e5d01",
+        "name": "Bryant Meng",
+        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+        "interviewer": false,
+        "intervieweeUsed": false
+    },
+    {
+        "id": "7eb7cd86-9860-41dc-83df-215cdf663cf7",
+        "name": "Katherine Johnson",
+        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+        "interviewer": false,
+        "intervieweeUsed": false
+    },
+    {
+        "id": "385c0264-e9d9-46e9-9f64-19be71003a4a",
+        "name": "Michelle Pugh",
+        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
         "interviewer": false,
         "intervieweeUsed": false
     }
@@ -207,41 +229,43 @@ export default function Page() {
 
   return (
     <main className="app">
-      <div className="titleRow">
-        <h1 className="title">Carmel Connections</h1>
-      </div>
-      <div className="grid">
-        <DropdownParent title="Team Manager" childComponentProps={null}>
-          <TeamManager
+        <div className="titleRow">
+            <h1 className="title">Carmel Connections</h1>
+        </div>
+        <div className="grid">
+            <DropdownParent title="Team Manager" childComponentProps={null}>
+            <TeamManager
+                teams={teams}
+                setTeams={setTeams}
+                employees={employees}
+                setEmployees={setEmployees}
+                setSelection={setSelection}
+            />
+            </DropdownParent>
+        </div>
+        <div className="viewerRow">
+            <TeamViewer
             teams={teams}
             setTeams={setTeams}
             employees={employees}
             setEmployees={setEmployees}
-            setSelection={setSelection}
-          />
-        </DropdownParent>
-        
-        <div>
-          <h3>Interviewer: {selection.interviewer?.name}</h3>
+            />
         </div>
-      </div>
-      <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
-          <TeamViewer
-          teams={teams}
-          setTeams={setTeams}
-          employees={employees}
-          setEmployees={setEmployees}
-          />
-      </div>
-      <div>
-        <SpinningWheel
-          teams={teams}
-          setEmployees={setEmployees}
-          employees={employees}
-          setSelection={setSelection}
-          selection={selection}
-        />
-      </div>
+        <div style={{ display: 'flex', justifyContent: 'center'}}>
+            <h3>Interviewer: {selection.interviewer?.name}</h3>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
+            <SpinningWheel
+            teams={teams}
+            setEmployees={setEmployees}
+            employees={employees}
+            setSelection={setSelection}
+            selection={selection}
+            />
+        </div>
+        {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
+            <SmoothWheelTest />
+        </div> */}
     </main>
   );
 }

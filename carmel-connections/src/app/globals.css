@@ -58,6 +58,12 @@ h1{margin:0 0 16px 0; font-weight:800; letter-spacing:.2px; color: "#2ea3f2"}
   color:var(--color-text);
   outline:none;
 }
+
+.viewerRow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .label{font-size:.9rem; color:var(--color-muted)}
 .titleRow{display:flex; align-items:center; justify-content:space-between}
 .title{font-size:2rem; background:linear-gradient(90deg,#fff, #9bd1ff); -webkit-background-clip:text; color:#69cc00}

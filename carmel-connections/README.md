@@ -1,3 +1,18 @@
+## Update for latest CarmelConnections Spin
+1. Start dev server
+cd carmel-connections && npm run dev
+2. Update Employee selections via dev website
+3. Copy employees object from dev tools console view
+4. Paste object into `page.txt`
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
