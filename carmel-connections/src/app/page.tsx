@@ -27,7 +27,7 @@ export default function Page() {
     }
 ]);
     // High ups who don't participate: Christa, Bruce, Michelle, Mike, Brad, Eric, Matt
-    // Interviee's that have actually been selected: Ryan C, Mellanie R, Justin B, Taylor K,
+    // Interviee's that have actually been selected: Ryan C, Mellanie R, Justin B, Taylor K, Sara W, Mickala W
   const [employees, setEmployees] = useState<Employee[]>([
     {
         "id": "0111d695-1bad-4350-adbb-bd99368b65f3",
@@ -119,13 +119,6 @@ export default function Page() {
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
         "interviewer": false,
         "intervieweeUsed": false
-    },
-    {
-        "id": "d20621e3-e959-486c-be1c-04af420dbc3e",
-        "name": "Brad Thurber",
-        "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
-        "interviewer": false,
-        "intervieweeUsed": true
     },
     {
         "id": "81caef12-1df1-4c6c-a91c-56ab91a81924",
@@ -222,6 +215,20 @@ export default function Page() {
         "id": "62d5bfd1-4594-4e9a-9d47-bb94ae53b7c3",
         "name": "Jami Marr",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
+        "interviewer": false,
+        "intervieweeUsed": false
+    },
+    {
+        "id": "f2e973ed-0c9c-4484-9e7a-ee33debd9203",
+        "name": "Chris Romano",
+        "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
+        "interviewer": false,
+        "intervieweeUsed": false
+    },
+    {
+        "id": "c33212d6-071c-4864-880c-567bc9f49a2e",
+        "name": "Mike Kiely",
+        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
         "interviewer": false,
         "intervieweeUsed": false
     }
