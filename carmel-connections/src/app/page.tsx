@@ -47,8 +47,8 @@ export default function Page() {
         "id": "700c5fd6-292c-42fe-80c7-82e3dfb77f88",
         "name": "Mickala Winans",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
-        "interviewer": false,
-        "intervieweeUsed": false
+        "interviewer": true,
+        "intervieweeUsed": true
     },
     {
         "id": "e3d8153a-7ffc-4ea2-857b-c4f8c116b188",
@@ -180,7 +180,7 @@ export default function Page() {
         "id": "9fcd6695-e442-4d88-be66-1a79d7e0cc5a",
         "name": "Sara Williamson",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
-        "interviewer": true,
+        "interviewer": false,
         "intervieweeUsed": true
     },
     {
@@ -190,48 +190,48 @@ export default function Page() {
         "interviewer": false,
         "intervieweeUsed": false
     },
-    {
-        "id": "50ef4a59-8d5a-4ddd-8443-da2cf01e5d01",
-        "name": "Bryant Meng",
-        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-        "interviewer": false,
-        "intervieweeUsed": false
-    },
-    {
-        "id": "7eb7cd86-9860-41dc-83df-215cdf663cf7",
-        "name": "Katherine Johnson",
-        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-        "interviewer": false,
-        "intervieweeUsed": false
-    },
-    {
-        "id": "385c0264-e9d9-46e9-9f64-19be71003a4a",
-        "name": "Michelle Pugh",
-        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-        "interviewer": false,
-        "intervieweeUsed": false
-    },
-    {
-        "id": "62d5bfd1-4594-4e9a-9d47-bb94ae53b7c3",
-        "name": "Jami Marr",
-        "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
-        "interviewer": false,
-        "intervieweeUsed": false
-    },
-    {
-        "id": "f2e973ed-0c9c-4484-9e7a-ee33debd9203",
-        "name": "Chris Romano",
-        "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
-        "interviewer": false,
-        "intervieweeUsed": false
-    },
-    {
-        "id": "c33212d6-071c-4864-880c-567bc9f49a2e",
-        "name": "Mike Kiely",
-        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-        "interviewer": false,
-        "intervieweeUsed": false
-    }
+    // {
+    //     "id": "50ef4a59-8d5a-4ddd-8443-da2cf01e5d01",
+    //     "name": "Bryant Meng",
+    //     "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+    //     "interviewer": false,
+    //     "intervieweeUsed": false
+    // },
+    // {
+    //     "id": "7eb7cd86-9860-41dc-83df-215cdf663cf7",
+    //     "name": "Katherine Johnson",
+    //     "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+    //     "interviewer": false,
+    //     "intervieweeUsed": false
+    // },
+    // { // Eligible 4/1
+    //     "id": "62d5bfd1-4594-4e9a-9d47-bb94ae53b7c3",
+    //     "name": "Jami Marr",
+    //     "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
+    //     "interviewer": false,
+    //     "intervieweeUsed": false
+    // },
+    // {
+    //     "id": "f2e973ed-0c9c-4484-9e7a-ee33debd9203",
+    //     "name": "Chris Romano",
+    //     "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
+    //     "interviewer": false,
+    //     "intervieweeUsed": false
+    // },
+    // {
+    //     "id": "c33212d6-071c-4864-880c-567bc9f49a2e",
+    //     "name": "Mike Kiely",
+    //     "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+    //     "interviewer": false,
+    //     "intervieweeUsed": false
+    // },
+    // {
+    //     "id": "b0185494-ae71-4cb1-b4e9-499b088463bf",
+    //     "name": "Re Smith",
+    //     "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+    //     "interviewer": false,
+    //     "intervieweeUsed": false
+    // }
 ]);
   const [selection, setSelection] = useState<{ interviewer: Employee | null; interviewee: Employee | null }>({
     interviewer: employees.find((e) => e.interviewer) || employees[0],
