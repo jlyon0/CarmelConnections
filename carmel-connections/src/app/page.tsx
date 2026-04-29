@@ -139,7 +139,7 @@ export default function Page() {
         "id": "44da3239-96db-476b-9e8e-7c186dfcb7e5",
         "name": "Joe Lyon",
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
-        "interviewer": true,
+        "interviewer": false,
         "intervieweeUsed": true
     },
     {
@@ -188,10 +188,10 @@ export default function Page() {
         "id": "31102833-10f8-4322-946f-36eba5786333",
         "name": "Scott Via",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
-        "interviewer": false,
+        "interviewer": true,
         "intervieweeUsed": false
     },
-    { // Eligible 4/1
+    {
         "id": "62d5bfd1-4594-4e9a-9d47-bb94ae53b7c3",
         "name": "Jami Marr",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
