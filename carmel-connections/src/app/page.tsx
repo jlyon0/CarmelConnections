@@ -188,16 +188,16 @@ export default function Page() {
         "id": "31102833-10f8-4322-946f-36eba5786333",
         "name": "Scott Via",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
-        "interviewer": true,
-        "intervieweeUsed": false
+        "interviewer": false,
+        "intervieweeUsed": true
     },
     {
         "id": "62d5bfd1-4594-4e9a-9d47-bb94ae53b7c3",
         "name": "Jami Marr",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
-        "interviewer": false,
-        "intervieweeUsed": false
-    },
+        "interviewer": true,
+        "intervieweeUsed": true
+    }
     // { // Eligible 7/1
     //     "id": "50ef4a59-8d5a-4ddd-8443-da2cf01e5d01",
     //     "name": "Bryant Meng",
@@ -283,8 +283,9 @@ export default function Page() {
         {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
             <SmoothWheelTest />
         </div> */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
-            <p>Eligible 7/1: Bryant Meng, Katherine Johnson, Chris Romano, Mike Kiely, Re Smith</p>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10, flexDirection: 'column', alignItems: 'center', gap: 0, lineHeight: 2}}>
+            <p style={{ margin: 0 }}>Eligible 7/1: Bryant Meng, Katherine Johnson, Chris Romano, Mike Kiely, Re Smith</p>
+            <p style={{ margin: 0 }}>Eligible 10/1: Mary Jo Adams, Andrew Burker</p>
         </div>
     </main>
   );
