@@ -28,7 +28,7 @@ export default function Page() {
 ]);
     // High ups who don't participate: Christa, Bruce, Michelle, Mike, Eric, Matt
     // As of 260324, Christa, Bruce, Mike, Eric are not in C Suite
-    // Interviee's that have actually been selected: Ryan C, Mellanie R, Justin B, Taylor K, Sara W, Mickala W, Joe L,
+    // Interviee's that have actually been selected: Ryan C, Mellanie R, Justin B, Taylor K, Sara W, Mickala W, Joe L, Scott V, Jami M, Bruce B
   const [employees, setEmployees] = useState<Employee[]>([
     {
         "id": "0111d695-1bad-4350-adbb-bd99368b65f3",
@@ -62,8 +62,8 @@ export default function Page() {
         "id": "8dcf52b7-3ce7-47df-9767-60a12108feac",
         "name": "Bruce Bredickas",
         "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-        "interviewer": false,
-        "intervieweeUsed": false
+        "interviewer": true,
+        "intervieweeUsed": true
     },
     {
         "id": "fc0a21ee-2089-4f0b-9dd8-bc149cb22ddf",
@@ -150,13 +150,6 @@ export default function Page() {
         "intervieweeUsed": true
     },
     {
-        "id": "f72e1825-fb30-4ac2-b9fe-b201d145f668",
-        "name": "Robert Greenwood",
-        "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
-        "interviewer": false,
-        "intervieweeUsed": false
-    },
-    {
         "id": "9515e70a-23ec-4cc3-b81b-adebe98388d2",
         "name": "Eric Johnson",
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
@@ -195,44 +188,44 @@ export default function Page() {
         "id": "62d5bfd1-4594-4e9a-9d47-bb94ae53b7c3",
         "name": "Jami Marr",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
-        "interviewer": true,
+        "interviewer": false,
         "intervieweeUsed": true
+    },
+    {
+        "id": "50ef4a59-8d5a-4ddd-8443-da2cf01e5d01",
+        "name": "Bryant Meng",
+        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+        "interviewer": false,
+        "intervieweeUsed": false
+    },
+    {
+        "id": "7eb7cd86-9860-41dc-83df-215cdf663cf7",
+        "name": "Katherine Johnson",
+        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+        "interviewer": false,
+        "intervieweeUsed": false
+    },
+    {
+        "id": "f2e973ed-0c9c-4484-9e7a-ee33debd9203",
+        "name": "Chris Romano",
+        "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
+        "interviewer": false,
+        "intervieweeUsed": false
+    },
+    {
+        "id": "c33212d6-071c-4864-880c-567bc9f49a2e",
+        "name": "Mike Kiely",
+        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+        "interviewer": false,
+        "intervieweeUsed": false
+    },
+    {
+        "id": "b0185494-ae71-4cb1-b4e9-499b088463bf",
+        "name": "Re Smith",
+        "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
+        "interviewer": false,
+        "intervieweeUsed": false
     }
-    // { // Eligible 7/1
-    //     "id": "50ef4a59-8d5a-4ddd-8443-da2cf01e5d01",
-    //     "name": "Bryant Meng",
-    //     "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-    //     "interviewer": false,
-    //     "intervieweeUsed": false
-    // },
-    // { // Eligible 7/1
-    //     "id": "7eb7cd86-9860-41dc-83df-215cdf663cf7",
-    //     "name": "Katherine Johnson",
-    //     "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-    //     "interviewer": false,
-    //     "intervieweeUsed": false
-    // },
-    // { // Eligible 7/1
-    //     "id": "f2e973ed-0c9c-4484-9e7a-ee33debd9203",
-    //     "name": "Chris Romano",
-    //     "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
-    //     "interviewer": false,
-    //     "intervieweeUsed": false
-    // },
-    // { // Eligible 7/1
-    //     "id": "c33212d6-071c-4864-880c-567bc9f49a2e",
-    //     "name": "Mike Kiely",
-    //     "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-    //     "interviewer": false,
-    //     "intervieweeUsed": false
-    // },
-    // { // Eligible 7/1
-    //     "id": "b0185494-ae71-4cb1-b4e9-499b088463bf",
-    //     "name": "Re Smith",
-    //     "teamId": "56c1c1df-bf3d-44da-9b1a-e1df06f700a4",
-    //     "interviewer": false,
-    //     "intervieweeUsed": false
-    // }
     // 10/1
     // Mary Jo, Andrew X 
 ]);
@@ -284,7 +277,6 @@ export default function Page() {
             <SmoothWheelTest />
         </div> */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10, flexDirection: 'column', alignItems: 'center', gap: 0, lineHeight: 2}}>
-            <p style={{ margin: 0 }}>Eligible 7/1: Bryant Meng, Katherine Johnson, Chris Romano, Mike Kiely, Re Smith</p>
             <p style={{ margin: 0 }}>Eligible 10/1: Mary Jo Adams, Andrew Burker</p>
         </div>
     </main>
