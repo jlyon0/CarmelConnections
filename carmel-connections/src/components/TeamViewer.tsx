@@ -32,7 +32,7 @@ export default function TeamViewer({ teams, setTeams, employees, setEmployees }:
                 {teamMembers.length > 0 && (
                   <div className={styles.empList}>
                     {teamMembers.map((m) => (
-                      <div key={m.id}>
+                      <div key={m.id} className={m.intervieweeUsed ? styles.used : undefined}>
                         {m.name}
                       </div>
                     ))}

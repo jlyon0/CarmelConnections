@@ -143,7 +143,8 @@ export default function SpinningWheel({
         (e) =>
         e.id !== interviewer.id &&
         e.teamId !== interviewer.teamId &&
-        !e.intervieweeUsed
+        !e.intervieweeUsed && 
+        !e.excluded
     );
 
     // If none left, reset usage and try again
@@ -152,7 +153,7 @@ export default function SpinningWheel({
         prev.map((p) => ({ ...p, intervieweeUsed: false }))
         );
         eligibleInterviewees = employees.filter(
-        (e) => e.id !== interviewer.id && e.teamId !== interviewer.teamId
+        (e) => e.id !== interviewer.id && e.teamId !== interviewer.teamId && !e.excluded
         );
     }
 
@@ -168,13 +169,7 @@ export default function SpinningWheel({
         eligibleInterviewees[
         Math.floor(Math.random() * eligibleInterviewees.length)
         ];
-
-    // Mark interviewee as used
-    setEmployees((prev) =>
-        prev.map((p) =>
-        p.id === interviewee.id ? { ...p, intervieweeUsed: true } : p
-        )
-    );
+    console.log("Selected interviewee:", interviewee.name);
 
     // Save selection
     setSelection((prev) => ({ ...prev, interviewee }));
@@ -213,6 +208,13 @@ export default function SpinningWheel({
       }
     };
     requestAnimationFrame(tick);
+
+    // Mark interviewee as used after spin completes
+    setTimeout(() => {
+      setEmployees((prev) =>
+        prev.map((p) => (p.id === interviewee.id ? { ...p, intervieweeUsed: true } : p))
+      );
+    }, duration);
   };
 
   return (

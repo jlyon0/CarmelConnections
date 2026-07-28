@@ -55,6 +55,11 @@
   text-align: center;
 }
 
+.empList .used {
+  background: #fecaca;
+  color: #7f1d1d;
+}
+
 /* Optional row container (for buttons or other controls) */
 .row {
   display: flex;

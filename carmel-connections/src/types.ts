@@ -6,4 +6,5 @@ export type Employee = {
   teamId: string;
   interviewer: boolean;
   intervieweeUsed: boolean;
+  excluded: boolean;
 };
