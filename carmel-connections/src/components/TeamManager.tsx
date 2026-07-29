@@ -41,6 +41,7 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
         teamId,
         interviewer: false,
         intervieweeUsed: false,
+        excluded: false,
       },
     ]);
     setEmployeeInputs((m) => ({ ...m, [teamId]: "" }));
@@ -58,6 +59,7 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
           teamId: emp.teamId,
           interviewer: false,
           intervieweeUsed: false,
+          excluded: emp.excluded
        }
       }),
     );
