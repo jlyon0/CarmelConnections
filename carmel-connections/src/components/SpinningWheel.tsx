@@ -185,36 +185,41 @@ export default function SpinningWheel({
     // Current rotation normalized
     const currentRot = rotation % (2 * Math.PI);
 
-    const spins = 4; // extra spins for flair
-    // Compute minimal rotation delta to land on chosen slice
-    let deltaRot = -currentRot - chosenAngle + spins * 2 * Math.PI; // 10 extra spins
-    // ensure deltaRot positive
+    const spins = 3;       // number of full rotations before landing
+    const topSpeed = .3;    // peak speed in rotations per second
+    // duration derived: peak_vel = spins * 5 / (duration/1000)  →  duration = spins * 5000 / topSpeed
+    const duration = (spins * 5000) / topSpeed;
+    let deltaRot = -currentRot - chosenAngle + spins * 2 * Math.PI;
     if (deltaRot < 0) deltaRot += 2 * Math.PI;
-
-    const duration = 20000;
     const start = rotation;
     const end = start + deltaRot;
     const startTime = performance.now();
 
+    const FPS = 60;
+    const interval = 1000 / FPS;
+    let last = 0;
+
     const tick = (time: number) => {
+      if (time - last < interval) {
+        requestAnimationFrame(tick);
+        return;
+      }
+      last = time;
       const t = Math.min(1, (time - startTime) / duration);
-      const eased = 1 - Math.pow(1 - t, 3); // ease-out
+      const eased = 1 - Math.pow(1 - t, 2); // ease-out
       const rot = start + (end - start) * eased;
       setRotation(rot);
       if (t < 1) requestAnimationFrame(tick);
       else {
         setRotation(end);
         setSpinning(false);
+        // Mark interviewee as used after spin completes
+        setEmployees((prev) =>
+          prev.map((p) => (p.id === interviewee.id ? { ...p, intervieweeUsed: true } : p))
+        );
       }
     };
     requestAnimationFrame(tick);
-
-    // Mark interviewee as used after spin completes
-    setTimeout(() => {
-      setEmployees((prev) =>
-        prev.map((p) => (p.id === interviewee.id ? { ...p, intervieweeUsed: true } : p))
-      );
-    }, duration);
   };
 
   return (
@@ -263,7 +268,7 @@ export default function SpinningWheel({
         {spinning ? "Spinning..." : "Spin"}
       </button>
 
-      {/* {selection.interviewee && (
+      {!spinning && selection.interviewee && (
         <div style={{ marginTop: 16 }}>
           <span
             style={{
@@ -277,7 +282,7 @@ export default function SpinningWheel({
             Selected: {selection.interviewee.name}
           </span>
         </div>
-      )} */}
+      )}
     </div>
   );
 }
