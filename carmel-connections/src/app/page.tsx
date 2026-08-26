@@ -42,8 +42,8 @@ export default function Page() {
         "id": "726dff84-e081-4dc6-93e0-104a6a466858",
         "name": "Kayla Becnel",
         "teamId": "630ceffa-fe87-43e6-8dcb-2f25b8064913",
-        "interviewer": false,
-        "intervieweeUsed": false,
+        "interviewer": true,
+        "intervieweeUsed": true,
         "excluded": false
     },
     {
@@ -146,7 +146,7 @@ export default function Page() {
         "id": "51ecad0f-21b4-4ea9-bf43-5e4629270d6c",
         "name": "Elle Lynn",
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
-        "interviewer": true,
+        "interviewer": false,
         "intervieweeUsed": true,
         "excluded": false
     },
@@ -254,9 +254,10 @@ export default function Page() {
         "intervieweeUsed": false,
         "excluded": false
     }
+]
     // 10/1
-    // Mary Jo, Andrew X 
-]);
+    // Mary Jo, Andrew Burker, Cody Burker, Brooklynn, Chloe
+);
   const [selection, setSelection] = useState<{ interviewer: Employee | null; interviewee: Employee | null }>({
     interviewer: employees.find((e) => e.interviewer) || employees[0],
     interviewee: null,
