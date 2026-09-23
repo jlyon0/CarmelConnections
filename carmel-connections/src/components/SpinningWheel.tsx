@@ -186,7 +186,7 @@ export default function SpinningWheel({
     const currentRot = rotation % (2 * Math.PI);
 
     const spins = 3;       // number of full rotations before landing
-    const topSpeed = .3;    // peak speed in rotations per second
+    const topSpeed = .5;    // peak speed in rotations per second
     // duration derived: peak_vel = spins * 5 / (duration/1000)  →  duration = spins * 5000 / topSpeed
     const duration = (spins * 5000) / topSpeed;
     let deltaRot = -currentRot - chosenAngle + spins * 2 * Math.PI;
@@ -195,8 +195,8 @@ export default function SpinningWheel({
     const end = start + deltaRot;
     const startTime = performance.now();
 
-    const FPS = 60;
-    const interval = 1000 / FPS;
+    const FPS = 45;
+    const interval = 1 / FPS; // sets the minimum time between wheel animation updates
     let last = 0;
 
     const tick = (time: number) => {

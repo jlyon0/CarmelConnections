@@ -101,6 +101,13 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
       }),
     );
   }
+  const handleToggleExcluded = (id: string) => {
+    setEmployees((e) =>
+      e.map((emp) =>
+        emp.id === id ? { ...emp, excluded: !emp.excluded } : emp,
+      ),
+    );
+  }
   const handleDeleteEmployee = (id:string) => {
     setEmployees((currentEmployees) =>
       currentEmployees.filter((emp) => emp.id !== id),
@@ -181,6 +188,7 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
                       <th >Name</th>
                       <th>Interviewer</th>
                       <th>IntervieweeUsed</th>
+                      <th>Excluded</th>
                       <th>Delete</th>
                     </thead>
                     <tbody>
@@ -194,6 +202,9 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
                             </td>
                             <td className={styles.buttonCell}>
                               <button onClick={()=> handleToggleIntervieweeUsed(m.id)} style={{display: 'flex', justifySelf: 'center'}}>{m.intervieweeUsed? "🗹": "☐"}</button>
+                            </td>
+                            <td className={styles.buttonCell}>
+                              <button onClick={() => handleToggleExcluded(m.id)} style={{display: 'flex', justifySelf: 'center'}}>{m.excluded ? "🗹" : "☐"}</button>
                             </td>
                             <td className={styles.buttonCell}>
                               <button onClick={() => handleDeleteEmployee(m.id)} style={{display: 'flex', justifySelf: 'center'}}>❌</button>
