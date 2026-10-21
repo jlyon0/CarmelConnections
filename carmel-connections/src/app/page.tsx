@@ -344,6 +344,7 @@ export default function Page() {
             />
         </div> */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10, flexDirection: 'column', alignItems: 'center', gap: 0, lineHeight: 2}}>
+            <p style={{ margin: 0 }}>Eligible 12/1/26: Brianna Nicholson, Jake Nicholson, Scott Nicholson</p>
             <p style={{ margin: 0 }}>Eligible 1/1/27: Jadan Ercoli, Nicolina Bellio</p>
         </div>
     </main>
