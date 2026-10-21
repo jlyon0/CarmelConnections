@@ -30,6 +30,14 @@
   border-bottom: 2px solid #ddd;
 }
 
+.teamExcludedButton {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
 /* Table cells */
 .tableContainer td {
   padding: 12px 15px;

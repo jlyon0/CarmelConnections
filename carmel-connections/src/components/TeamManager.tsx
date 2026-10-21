@@ -108,6 +108,16 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
       ),
     );
   }
+  const handleToggleTeamExcluded = (teamId: string) => {
+    setEmployees((currentEmployees) => {
+      const teamMembers = currentEmployees.filter((emp) => emp.teamId === teamId);
+      const shouldExclude = !teamMembers.every((emp) => emp.excluded);
+
+      return currentEmployees.map((emp) =>
+        emp.teamId === teamId ? { ...emp, excluded: shouldExclude } : emp,
+      );
+    });
+  }
   const handleDeleteEmployee = (id:string) => {
     setEmployees((currentEmployees) =>
       currentEmployees.filter((emp) => emp.id !== id),
@@ -185,11 +195,23 @@ export default function TeamManager({ teams, setTeams, employees, setEmployees, 
                 {teamMembers.length > 0 && (
                   <table className={styles.tableContainer}>
                     <thead>
-                      <th >Name</th>
-                      <th>Interviewer</th>
-                      <th>IntervieweeUsed</th>
-                      <th>Excluded</th>
-                      <th>Delete</th>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Interviewer</th>
+                        <th scope="col">IntervieweeUsed</th>
+                        <th scope="col">
+                          <button
+                            type="button"
+                            className={styles.teamExcludedButton}
+                            aria-label={`${teamMembers.every((member) => member.excluded) ? "Unexclude" : "Exclude"} all members of ${team.name}`}
+                            aria-pressed={teamMembers.every((member) => member.excluded)}
+                            onClick={() => handleToggleTeamExcluded(team.id)}
+                          >
+                            Excluded
+                          </button>
+                        </th>
+                        <th scope="col">Delete</th>
+                      </tr>
                     </thead>
                     <tbody>
                     {teamMembers.map((m) => (

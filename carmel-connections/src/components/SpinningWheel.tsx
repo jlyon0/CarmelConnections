@@ -195,7 +195,7 @@ export default function SpinningWheel({
     const end = start + deltaRot;
     const startTime = performance.now();
 
-    const FPS = 45;
+    const FPS = 60;
     const interval = 1 / FPS; // sets the minimum time between wheel animation updates
     let last = 0;
 

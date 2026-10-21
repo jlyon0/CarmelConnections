@@ -142,7 +142,7 @@ export default function Page() {
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
         "interviewer": false,
         "intervieweeUsed": false,
-        "excluded": false
+        "excluded": true
     },
     {
         "id": "51ecad0f-21b4-4ea9-bf43-5e4629270d6c",
@@ -150,7 +150,7 @@ export default function Page() {
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
         "interviewer": false,
         "intervieweeUsed": true,
-        "excluded": false
+        "excluded": true
     },
     {
         "id": "44da3239-96db-476b-9e8e-7c186dfcb7e5",
@@ -158,7 +158,7 @@ export default function Page() {
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
         "interviewer": false,
         "intervieweeUsed": true,
-        "excluded": false
+        "excluded": true
     },
     {
         "id": "e36c8443-f331-4032-acc9-d1837ce71e19",
@@ -166,7 +166,7 @@ export default function Page() {
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
         "interviewer": false,
         "intervieweeUsed": true,
-        "excluded": false
+        "excluded": true
     },
     {
         "id": "9515e70a-23ec-4cc3-b81b-adebe98388d2",
@@ -174,7 +174,7 @@ export default function Page() {
         "teamId": "b4190570-7a17-4da5-8bbd-58512f7c2e08",
         "interviewer": false,
         "intervieweeUsed": false,
-        "excluded": false
+        "excluded": true
     },
     {
         "id": "c71e391c-6e38-4b11-9424-30aefc8cf4a8",
@@ -230,7 +230,7 @@ export default function Page() {
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
         "interviewer": false,
         "intervieweeUsed": true,
-        "excluded": false
+        "excluded": true
     },
     {
         "id": "c33212d6-071c-4864-880c-567bc9f49a2e",
@@ -262,7 +262,7 @@ export default function Page() {
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
         "interviewer": false,
         "intervieweeUsed": false,
-        "excluded": false
+        "excluded": true
     },
     {
         "id": "1c22be41-f462-4493-bf16-beefde6bb06d",
@@ -270,7 +270,7 @@ export default function Page() {
         "teamId": "693e7a42-0300-470f-be0f-fe478a93f013",
         "interviewer": false,
         "intervieweeUsed": false,
-        "excluded": false
+        "excluded": true
     },
     {
         "id": "8fde1464-b9d1-4b1f-86df-1fe23235f63b",
@@ -344,7 +344,7 @@ export default function Page() {
             />
         </div> */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10, flexDirection: 'column', alignItems: 'center', gap: 0, lineHeight: 2}}>
-            {/* <p style={{ margin: 0 }}>Eligible 10/1: Mary Jo Adams, Andrew Burker, Cody Burker, Brooklynn McGrath, Chloe Merritt</p> */}
+            <p style={{ margin: 0 }}>Eligible 1/1/27: Jadan Ercoli, Nicolina Bellio</p>
         </div>
     </main>
   );
